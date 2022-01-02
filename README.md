@@ -5,8 +5,8 @@ Must have:
 1. Python 3.6+
 2. Django
 3. Instant client 21_x+
-4. Database wallet
-Optional:
-1. IDE cooperating with above (e.g. Sqldeveloper + Pycharm)
+4. Database wallet  
+Optional:  
+IDE cooperating with above (e.g. Sqldeveloper + Pycharm)
 # Installation
 https://blogs.oracle.com/opal/post/connecting-to-oracle-cloud-autonomous-database-with-django
