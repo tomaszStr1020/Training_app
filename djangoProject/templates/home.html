@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{%  block content %}
+<h1> About</h1>
+<h1> Template!ss</h1>
+{%  endblock  %}
+
+{% block information %}
+    <h1> That's what she said</h1>
+    <!-- Używanie kontekstu do wstawiania danych-->
+    <p>{{ kursor }}</p>
+ <!-- Pętla for w templatce-->
+    {% for x in kursor %}
+        <p>
+        <li>
+        {{ x }}
+        </li>
+        </p>
+    {% endfor %}
+{% endblock %}
