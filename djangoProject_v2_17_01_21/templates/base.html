@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{%  load static %}
+
+
+<html  lang="pl">
+<head>
+    <title>Training_app</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css?{% now "U" %} ">
+    <link rel="stylesheet" type="text/css" href="/static/css/menu.css?{% now "U" %} ">
+    <link rel="stylesheet" type="text/css" href="/static/css/menu_zaw.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+
+</head>
+<body style="background: #1cdf78">
+
+    <div class="background_app" >
+        <div class="row">
+            <div class="col-md-2" align="right">
+
+
+                    {% if user.is_authenticated%}
+                        <div class="Zalogowany">
+                            <a href="http://127.0.0.1:8000/logout/">Wyloguj</a>
+                        </div>
+
+                    {% else %}
+                        <div class="Zaloguj">
+                        <a href="http://127.0.0.1:8000/login/" >Zaloguj</a>
+                        </div>
+                    {% endif %}
+
+
+            </div>
+
+            <div class="col-md-3" align="center" >
+                <div class="title">
+                    <a href="http://127.0.0.1:8000/">Training app</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+        {% if user.is_authenticated   and username.0 == 's' %}
+
+            <div class="nav" align="down">
+
+				<ul>
+					<li><a href="http://127.0.0.1:8000">Zawodnicy</a></li>
+					<li><a href="http://127.0.0.1:8000">Trenerzy</a></li>
+					<li><a href="http://127.0.0.1:8000">Grupy</a></li>
+					<li><a href="http://127.0.0.1:8000">Plany treningowe</a></li>
+					<li><a href="http://127.0.0.1:8000">Diety</a></li>
+					<li><a href="http://127.0.0.1:8000">Dyscypliny</a></li>
+					<li><a href="http://127.0.0.1:8000">Profil</a></li>
+
+				</ul>
+            </div>
+
+
+            {% elif user.is_authenticated and username.0 == 'k' %}
+
+            <div class="nav">
+
+				<ul>
+					<li><a href="http://127.0.0.1:8000">Treningi</a></li>
+					<li><a href="http://127.0.0.1:8000">Dieta</a></li>
+					<li><a href="http://127.0.0.1:8000/grupy">Grupy</a></li>
+					<li><a href="http://127.0.0.1:8000">Dyscypliny</a></li>
+					<li><a href="http://127.0.0.1:8000">Profil</a></li>
+				</ul>
+            </div>
+
+{% endif %}
+
+
+
+
+        {% block grupy %}
+        {% endblock %}
+        {% block menu %}
+
+        {% endblock %}
+
+        <div style="background: #1cdf78" align="center">
+
+         {% block title %}
+             replace me
+        {% endblock %}
+            {% block content %}
+                Place information here
+            {% endblock %}
+
+        </div>
+
+
+</body>
+</html>
