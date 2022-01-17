@@ -10,3 +10,5 @@ Optional:
 IDE cooperating with above (e.g. Sqldeveloper + Pycharm)
 # Installation
 https://blogs.oracle.com/opal/post/connecting-to-oracle-cloud-autonomous-database-with-django
+# Static files 
+https://drive.google.com/drive/folders/1Heenyp54WJeq5blM6BGVMh9I2S_6HLn5?usp=sharing
