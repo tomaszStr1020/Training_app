@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block grupy  %}
+<div align="center">
+    <table>
+        <caption>Moje grupy:</caption>
+
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th></th>
+        </tr>
+        {% for foo in moje_grupy %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            <td><a href="http://127.0.0.1:8000/grupy/">info</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+<div align="center">
+    <table>
+        <caption>Grupy:</caption>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th></th>
+        </tr>
+                {% for foo in grupy %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            <td><a href="{% url 'detail_group_view' foo.0 %}" >info</a></td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000">
+        <button class="btn">Stwórz grupę</button>
+    </a>
+</div>
+{% endblock %}
+

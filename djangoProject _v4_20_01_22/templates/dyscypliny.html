@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block dyscypliny  %}
+<div align="center">
+    <table>
+        <caption>Dyscypliny:</caption>
+        <tr>
+            <th>Nazwa</th>
+            <th>Typ</th>
+            <th></th>
+        </tr>
+        {% for foo in dyscypliny %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.3 }}</td>
+            <td><a href="http://127.0.0.1:8000/grupy/">info</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000">
+        <button class="btn">Dodaj dyscyplinę</button>
+    </a>
+    <a href="http://127.0.0.1:8000/typydyscyplin">
+        <button class="btn2">Typy dyscyplin</button>
+    </a>
+</div>
+{% endblock %}
