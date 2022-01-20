@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block diety  %}
+<div align="center">
+    <table>
+        <caption>Diety:</caption>
+        <tr>
+            <th>ID</th>
+            <th>Kaloryczność</th>
+            <th>Opis</th>
+            <th></th>
+        </tr>
+        {% for foo in diety %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            <td>{{ foo.2 }}</td>
+            <td><a href="{% url 'usun' foo.0 'asd'%}">usuń</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000">
+        <button class="btn">Dodaj dietę</button>
+    </a>
+</div>
+{% endblock %}

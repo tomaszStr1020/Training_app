@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block details %}
+    <div align="center">
+    <table>
+        <caption>Grupa:</caption>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Trener</th>
+            <th>Typ grupy</th>
+            </tr>
+                {% for foo in details %}
+            <td>{{ foo }}</td>
+            {% endfor %}
+
+
+    </table>
+</div>
+    <div align="center">
+    <table>
+        <caption>Zawodnicy:</caption>
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+        </tr>
+            {% for foo in zawodnicy %}
+                    <tr>
+                    {% for dane in foo %}
+                        <td>{{ dane }}</td>
+                    {% endfor %}
+                    </tr>
+            {% endfor %}
+
+
+    </table>
+        <p><a href="http://127.0.0.1:8000/grupy/">Powrót</a></p>
+</div>
+{% endblock %}

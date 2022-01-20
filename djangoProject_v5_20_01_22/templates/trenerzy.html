@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block trenerzy  %}
+<div align="center">
+    <form method="get" >
+        Nazwisko:
+       <input type="text" name="nazwisko">
+        ID:
+       <input type="number" min="0" name="id_zaw"><br>
+        <input type="submit" value="Szukaj" name="submit" >
+   </form>
+
+
+</div>
+<div align="center">
+    <table>
+        <caption>Trenerzy:</caption>
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th></th>
+        </tr>
+        {% for foo in trenerzy %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            <td>{{ foo.2 }}</td>
+            <td><a href="http://127.0.0.1:8000/grupy/">info</a></td>
+        </tr>
+        {% endfor %}
+    <tr>{{ nazwisko }}</tr>
+    </table>
+</div>
+
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000">
+        <button class="btn">Dodaj trenera</button>
+    </a>
+</div>
+{% endblock %}
