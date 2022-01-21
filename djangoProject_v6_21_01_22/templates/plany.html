@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block plany  %}
+<div align="center">
+    {% if l != 0 %}
+    <table>
+        <caption>Moje plany treningowe:</caption>
+
+        <tr>
+            <th>ID</th>
+            <th>Autor</th>
+            <th></th>
+        </tr>
+        {% for foo in moje_plany %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            <td><a href="{% url 'detail_plan_view' foo.0 %}">info</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+<div align="center">
+    <table>
+        <caption>Plany treningowe:</caption>
+        <tr>
+            <th>ID</th>
+            <th>Autor</th>
+            <th></th>
+        </tr>
+                {% for foo in plany %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            <td><a href="{% url 'detail_plan_view' foo.0 %}">info</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000/dodajplan">
+        <button class="btn">Dodaj nowy plan</button>
+    </a>
+</div>
+{% endblock %}
+

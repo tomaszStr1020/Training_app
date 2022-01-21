@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block editgrupy  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_group_view' id %}">Powrót</a></p>
+    </div>
+<div align="center">
+    <form>
+        <font size="+2">Nazwa*</font><br>
+        <input type="text" name="nazwa" value={{grupy.1}}><br>
+        <font size="+2">Trener*</font><br>
+        <select id="trener" name="trener">
+            <option selected={{atrener.0}}>{{atrener.1}} {{atrener.2}}</option>
+            {% for foo in trenerzy %}
+                <option value={{foo.0}}>{{foo.1}} {{foo.2}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+2">Typ*</font><br>
+        <select id="typ" name="typ">
+            <option selected={{atyp}}>{{atyp}}</option>
+            {% for foo in typy %}
+                <option value={{foo.0}}>{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+    </form>
+</div>
+<div align="center">
+    <br>
+    * - pole obowiązkowe
+</div>
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000/dodajzawodnika">
+        <button class="btn">Zapisz</button>
+    </a>
+</div>
+{% endblock %}

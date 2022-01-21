@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block delete_diet %}
+    <p>Pomyślnie usunięto </p>
+
+    {% if error %}
+    <p>Nie udało się usunąć</p>
+        {% elif typ == "zawodnik" %}
+        <p>zawodnika</p>
+        <meta http-equiv="refresh" content="0; url=http://127.0.0.1:8000/zawodnicy" />
+        {% elif typ == 'diety' %}
+        <p>dietę</p>
+        <meta http-equiv="refresh" content="0; url=http://127.0.0.1:8000/diety" />
+        {% elif typ == 'dyscyplina' %}
+        <p>dyscyplinę</p>
+        <meta http-equiv="refresh" content="0; url=http://127.0.0.1:8000/dyscypliny" />
+        {% elif typ == 'typ_dyscypliny' %}
+        <p>typ dyscypliny</p>
+        <meta http-equiv="refresh" content="0; url=http://127.0.0.1:8000/typydyscyplin" />
+        {% else %}
+        <p>?</p>
+    {% endif %}
+{% endblock %}

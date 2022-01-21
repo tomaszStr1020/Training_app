@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block detailtrenerzy %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/trenerzy/">Powrót</a></p>
+    </div>
+    <div align="center">
+   <font size="+5">Trener</font> <br>
+    <br>
+    <font size="+3" color="#696969">IMIĘ:</font><font size="+3"> {{trenerzy.1}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">NAZWISKO:</font><font size="+3"> {{trenerzy.2}} </font> <br>
+    <br>
+     {% if trenerzy.3 is not Null %}
+    <font size="+3" color="#696969">PESEL:</font><font size="+3"> {{trenerzy.3}} </font> <br><br>
+         {% else %}
+        <font size="+3" color="#696969">PESEL:</font><font size="+3"> brak danych </font> <br><br>
+        {% endif %}
+    {% if trenerzy.4 is not Null %}
+    <font size="+3" color="#696969">DATA URODZENIA:</font><font size="+3"> {{data}} </font> <br><br>
+       {% else %}
+        <font size="+3" color="#696969">DATA URODZENIA:</font><font size="+3"> brak danych </font> <br><br>
+    {% endif %}
+    {% if trenerzy.5 == 'M' %}
+        <font size="+3" color="#696969">PŁEĆ:</font><font size="+3"> Mężczyzna </font> <br><br>
+    {% elif trenerzy.5 == 'K' %}
+        <font size="+3" color="#696969">PŁEĆ:</font><font size="+3"> Kobieta </font> <br><br>
+    {% else %}
+        <font size="+3" color="#696969">PŁEĆ:</font><font size="+3"> brak danych </font> <br><br>
+    {% endif %}
+
+<div class="container" align="center">
+    <a href="{% url 'add_disccoach_view' id %}">
+        <button class="btn">Przypisz dyscyplinę</button>
+    </a>
+    <a href="{% url 'edit_coach_view' id %}">
+        <button class="btn">Edytuj dane</button>
+    </a>
+    <a href="http://127.0.0.1:8000">
+        <button class="btn">Usuń trenera</button>
+    </a>
+</div>
+
+
+</div>
+    <div align="center">
+        {% if l != 0 %}
+    <table>
+        <caption>Dyscypliny:</caption>
+        <tr>
+            <th>Nazwa</th>
+            <th>Rekord życiowy</th>
+            <th>Data rozpoczęcia</th>
+        </tr>
+            {% for foo in dysc %}
+                    <tr>
+                    {% for dane in foo %}
+                        <td>{{ dane }}</td>
+                    {% endfor %}
+                    </tr>
+            {% endfor %}
+
+
+    </table>
+        {% endif %}
+</div>
+{% endblock %}

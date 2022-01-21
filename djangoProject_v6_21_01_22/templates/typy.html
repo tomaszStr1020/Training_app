@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block typy  %}
+<div align="center">
+    <table>
+        <caption>Typy dyscyplin:</caption>
+        <tr>
+            <th>Nazwa</th>
+            <th></th>
+        </tr>
+        {% for foo in typy %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td><a href="{% url 'usun' foo.0 'typ_dyscypliny' %}">usuń</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container" align="center">
+    <a href="{% url 'dodajtypdyscypliny' %}">
+        <button class="btn">Dodaj typ</button>
+    </a>
+    <a href="http://127.0.0.1:8000/dyscypliny">
+        <button class="btn2">Dyscypliny</button>
+    </a>
+</div>
+{% endblock %}

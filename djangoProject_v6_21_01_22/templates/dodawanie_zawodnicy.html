@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block addzawodnicy  %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/zawodnicy/">Powrót</a></p>
+    </div>
+<div align="center">
+    <form method="get" action="{% url 'dodajzawodnika' %}">
+        <font size="+2">Imię*</font><br>
+        <input type="text" name="imie"><br>
+        <font size="+2">Nazwisko*</font><br>
+        <input type="text" name="nazwisko"><br>
+        <font size="+2">PESEL</font><br>
+        <input type="text" name="pesel"><br>
+        <font size="+2">Data urodzenia</font><br>
+        <input type="date" name="data_ur" value="2000-01-01"><br>
+        <font size="+2">Płeć</font><br>
+        <select id="plec" name="plec">
+                <option value="K">Kobieta</option>
+                <option value="M">Mężczyzna</option>
+        </select><br>
+        <font size="+2">Grupa*</font><br>
+        <select id="grupa" name="grupa" type="date">
+            {% for foo in grupy %}
+                <option value="{{foo.0}}">{{foo.1}}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Dodaj" name="Dodaj">
+    </form>
+</div>
+<div align="center">
+    <br>
+    * - pole obowiązkowe
+</div>
+
+{% endblock %}

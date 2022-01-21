@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block adddisczawodnicy  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_competitor_view' id %}">Powrót</a></p>
+    </div>
+<div align="center">
+    <form>
+        <font size="+2">Wybierz dyscyplinę</font><br>
+        <select id="dysc" name="dysc">
+            {% for foo in dysc %}
+                <option value={{foo.0}}>{{foo.0}}</option>
+        {% endfor %}
+        </select>
+    </form>
+</div>
+<div class="container" align="center">
+    <a href="http://127.0.0.1:8000/dodajzawodnika">
+        <button class="btn">Przypisz</button>
+    </a>
+</div>
+{% endblock %}
