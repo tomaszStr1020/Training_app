@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block details %}
+     <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/grupy/">Powrót</a></p>
+    </div>
+    <div align="center">
+     {% if details.1 is not None %}
+    <font size="+5">{{details.1}}</font> <br><br>
+     {% else %}
+     <font size="+5">{{details.0}}</font> <br><br>
+     {% endif %}
+     <font size="+3" color="#696969">TRENER:</font><font size="+3"> {{details.2}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">TYP:</font><font size="+3"> {{details.3}} </font> <br>
+    <br>
+</div>
+        {% if mg != 0 %}
+    <div class="container" align="center">
+            <a href="{% url 'traininggroup_view' id %}">
+                <button class="btn">Treningi</button>
+            </a>
+            <a href="{% url 'edit_group_view' id %}">
+                <button class="btn">Edytuj dane</button>
+            </a>
+            <a href="http://127.0.0.1:8000">
+                <button class="btn">Usuń grupę</button>
+            </a>
+    </div>
+        {% endif %}
+
+
+    <div align="center">
+        {% if l != 0 %}
+    <table>
+        <caption>Zawodnicy:</caption>
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+        </tr>
+            {% for foo in zawodnicy %}
+                    <tr>
+                    {% for dane in foo %}
+                        <td>{{ dane }}</td>
+                    {% endfor %}
+                    </tr>
+            {% endfor %}
+
+
+    </table>
+        {% endif %}
+</div>
+{% endblock %}

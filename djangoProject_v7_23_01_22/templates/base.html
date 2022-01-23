@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{%  load static %}
+
+
+<html  lang="pl">
+<head>
+    <title>Training_app</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css?{% now "U" %} ">
+    <link rel="stylesheet" type="text/css" href="/static/css/menu.css?{% now "U" %} ">
+    <link rel="stylesheet" type="text/css" href="/static/css/menu_zaw.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/buttons.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/table.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+
+</head>
+<body style="background: #1cdf78">
+
+    <div class="background_app" >
+        <div class="row">
+            <div class="col-md-2" align="right">
+
+
+                    {% if user.is_authenticated%}
+                        <div class="Zalogowany">
+                            <a href="http://127.0.0.1:8000/logout/">Wyloguj</a>
+                        </div>
+
+                    {% else %}
+                        <div class="Zaloguj">
+                        <a href="http://127.0.0.1:8000/login/" >Zaloguj</a>
+                        </div>
+                    {% endif %}
+
+
+            </div>
+
+            <div class="col-md-3" align="center" >
+                <div class="title">
+                    <a href="http://127.0.0.1:8000/">Training app</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+        {% if user.is_authenticated   and request.user|make_list|slice:'0:1' == 'T'|make_list %}
+
+            <div class="nav" align="down">
+
+				<ul>
+					<li><a href="http://127.0.0.1:8000/zawodnicy">Zawodnicy</a></li>
+					<li><a href="http://127.0.0.1:8000/trenerzy">Trenerzy</a></li>
+					<li><a href="http://127.0.0.1:8000/grupy">Grupy</a></li>
+					<li><a href="http://127.0.0.1:8000/plany">Plany treningowe</a></li>
+					<li><a href="http://127.0.0.1:8000/diety">Diety</a></li>
+					<li><a href="http://127.0.0.1:8000/dyscypliny">Dyscypliny</a></li>
+					<li><a href="http://127.0.0.1:8000/profil">Profil</a></li>
+				</ul>
+            </div>
+
+
+            {% elif user.is_authenticated and request.user|make_list|slice:'0:1' == 'Z'|make_list %}
+
+            <div class="nav">
+
+				<ul>
+					<li><a href="http://127.0.0.1:8000/treningizaw">Treningi</a></li>
+					<li><a href="http://127.0.0.1:8000/dietazaw">Dieta</a></li>
+					<li><a href="http://127.0.0.1:8000/grupyzaw">Grupa</a></li>
+					<li><a href="http://127.0.0.1:8000/dyscyplinyzaw">Dyscypliny</a></li>
+					<li><a href="http://127.0.0.1:8000/profil">Profil</a></li>
+				</ul>
+            </div>
+            {% else %}
+    {{ user.is_authenticated }}, {{ request.user|make_list|slice:'0:1'|join:'' }}
+
+{% endif %}
+
+    {{ request.user.1 }}
+        {% block grupy %}
+        {% endblock %}
+
+        {% block addgrupy %}
+        {% endblock %}
+
+        {% block editgrupy %}
+        {% endblock %}
+
+        {% block treningigrupy  %}
+        {% endblock %}
+
+        {% block plantraining  %}
+        {% endblock %}
+
+        {% block detailtraining  %}
+        {% endblock %}
+
+        {% block zawodnicy %}
+        {% endblock %}
+
+        {% block detailzawodnicy %}
+        {% endblock %}
+
+        {% block addzawodnicy %}
+        {% endblock %}
+
+        {% block adddisczawodnicy  %}
+        {% endblock %}
+
+        {% block ustaleniediety  %}
+        {% endblock %}
+
+        {% block editzawodnicy %}
+        {% endblock %}
+
+        {% block trenerzy %}
+        {% endblock %}
+
+        {% block detailtrenerzy %}
+        {% endblock %}
+
+        {% block addtrenerzy %}
+        {% endblock %}
+
+        {% block adddisctrenerzy  %}
+        {% endblock %}
+
+        {% block edittrenerzy %}
+        {% endblock %}
+
+         {% block plany %}
+        {% endblock %}
+
+         {% block detailsplan %}
+        {% endblock %}
+
+        {% block addplany %}
+        {% endblock %}
+
+        {% block editplany %}
+        {% endblock %}
+
+        {% block diety %}
+        {% endblock %}
+
+        {% block adddiety %}
+        {% endblock %}
+
+        {% block dyscypliny %}
+        {% endblock %}
+
+        {% block adddisc %}
+        {% endblock %}
+
+        {% block typy %}
+        {% endblock %}
+
+        {% block addtypedisc %}
+        {% endblock %}
+
+        {% block profil %}
+        {% endblock %}
+
+        {% block grupazaw %}
+        {% endblock %}
+
+        {% block dyscyplinyzaw %}
+        {% endblock %}
+
+        {% block dietyzaw %}
+        {% endblock %}
+
+        {% block treningizaw %}
+        {% endblock %}
+
+        {% block menu %}
+        {% endblock %}
+
+        {% block details %}
+        {% endblock %}
+        {% block delete_diet %}
+        {% endblock %}
+
+        <div style="background: #1cdf78" align="center">
+
+            {% block title %}
+            {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+
+</body>
+</html>

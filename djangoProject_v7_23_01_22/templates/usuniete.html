@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block delete_diet %}
+    <p>Pomyślnie usunięto </p>
+
+    {% if error %}
+    <p>Nie udało się usunąć</p>
+        {% elif typ == "zawodnik" %}
+        <p>zawodnika</p>
+            <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/zawodnicy">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'diety' %}
+        <p>dietę</p>
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/diety">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'dyscyplina' %}
+        <p>dyscyplinę</p>
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/dyscypliny">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'typ_dyscypliny' %}
+        <p>typ dyscypliny</p>
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/typydyscyplin">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'trener' %}
+        <p>trener</p>
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/trenerzy">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% else %}
+        <p>?</p>
+    {% endif %}
+{% endblock %}

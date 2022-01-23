@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block grupazaw  %}
+<div align="center">
+     {% if grupa.1 is not None %}
+    <font size="+5">{{grupa.1}}</font> <br><br>
+     {% else %}
+     <font size="+5">{{grupa.0}}</font> <br><br>
+     {% endif %}
+     <font size="+3" color="#696969">TRENER:</font><font size="+3"> {{trener.1}} {{trener.2}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">TYP:</font><font size="+3"> {{grupa.3}} </font> <br>
+    <br>
+</div>
+
+<div align="center">
+    <table>
+        <caption>Członkowie</caption>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+        </tr>
+            {% for foo in zawod %}
+                    <tr>
+                    {% for dane in foo %}
+                        <td>{{ dane }}</td>
+                    {% endfor %}
+                    </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}

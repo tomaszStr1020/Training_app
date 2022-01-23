@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block adddisc %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/dyscypliny/">Powrót</a></p>
+    </div>
+<div align="center">
+    <form method="get" action="{% url 'dodajdyscypline' %}">
+        <font size="+2">Nazwa*</font><br>
+        <input type="text" name="nazwa"><br>
+        <font size="+2">Typ*</font><br>
+        <select id="typ" name="typ">
+            {% for foo in typy %}
+                <option value= <"{{foo.0}}" >{{foo.0}}</option>
+        {% endfor %}
+        </select>
+
+    <br><input type="submit" name="Dodaj" value="Dodaj">
+
+    </form>
+</div>
+<div align="center">
+    <br>
+    * - pole obowiązkowe
+</div>
+
+{% endblock %}

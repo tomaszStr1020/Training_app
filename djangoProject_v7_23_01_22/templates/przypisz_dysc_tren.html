@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block adddisctrenerzy  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_coach_view' id %}">Powrót</a></p>
+    </div>
+<div align="center">
+    <form method="get" action="{% url 'add_disccoach_view' id %}">
+        <font size="+2">Wybierz dyscyplinę</font><br>
+        <select id="dysc" name="dysc">
+            {% for foo in dysc %}
+                <option value={{foo.0}}>{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+    <input type="submit" value="Przypisz" name="przypisz">
+    </form>
+</div>
+
+{% endblock %}

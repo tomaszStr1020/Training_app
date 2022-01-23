@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block dietyzaw  %}
+<div align="center">
+    <font size="+5">Moja dieta</font> <br>
+    <br>
+    {% if flag == 0 %}
+        <font size="+3" color="#696969">Nie masz obecnie przydzielonej diety.</font> <br>
+    {% else %}
+        <font size="+3" color="#696969">KALORYCZNOŚĆ:</font><font size="+3"> {{dieta.0}} </font> <br>
+        <br>
+        <font size="+3" color="#696969">OPIS:</font><font size="+3"> {{dieta.1}} </font> <br>
+        <br>
+        <font size="+3" color="#696969">OBOWIĄZUJE DO:</font><font size="+3"> {{dieta.2}} </font> <br>
+        <br>
+    {% endif %}
+</div>
+{% endblock %}
