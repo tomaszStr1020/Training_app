@@ -1,5 +1,7 @@
 # Training_app
 Project of application dedicated for coaches and their trainees to optimise exchange information about training's results, targets etc.
+# Newest presentation (v8_25_01_22): 
+https://youtu.be/EwiDHn9-F5g
 # Requirements to work with app
 Must have:
 1. Python 3.6+
