@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block profil  %}
+<div align="center">
+     <font size="+5">{{funkcja}}</font> <br>
+    <br>
+    <font size="+3" color="#696969">IMIĘ:</font><font size="+3"> {{imie}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">NAZWISKO:</font><font size="+3"> {{nazwisko}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">PESEL:</font><font size="+3"> {{pesel}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">DATA URODZENIA:</font><font size="+3"> {{data_ur}} </font> <br>
+    <br>
+    <font size="+3" color="#696969">PŁEĆ:</font><font size="+3"> {{plec}} </font> <br>
+    {% if prof == 2 %}
+        <br>
+        <font size="+3" color="#696969">GRUPA:</font><font size="+3"> {{grupa}} </font> <br>
+    {% endif %}
+</div>
+{% if prof == 1 %}
+    <div class="container" align="center">
+    <a href="{% url 'edit_coach_view' id %}">
+        <button class="btn">Edytuj dane</button>
+    </a>
+</div>
+{% endif %}
+{% endblock %}

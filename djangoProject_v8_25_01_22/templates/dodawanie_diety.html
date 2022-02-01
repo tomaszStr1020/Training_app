@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block adddiety %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/diety/">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Dodano nową dietę! Dodaj kolejną dietę lub wróć do listy diet.</font><br><br><br>
+</div>
+{% elif flag == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się dodać diety. Wpisz kaloryczność!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'dodawanie_diety' %}">
+        <font size="+2">Kaloryczność*</font><br>
+        <input type="number" min="0" name="kalorycznosc"><br>
+        <font size="+2">Opis</font><br>
+        <textarea name="opis" rows="5" cols="40"></textarea><br>
+        <font>* - pole obowiązkowe</font><br>
+        <input type="submit" value="Dodaj" name="Dodaj">
+    </form>
+</div>
+{% endblock %}

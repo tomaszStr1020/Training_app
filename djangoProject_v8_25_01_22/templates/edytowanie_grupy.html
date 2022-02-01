@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block editgrupy  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_group_view' id %}">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się edytować grupy. Wypełnij pola oznaczone gwiazdką!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'edit_group_view' id %}">
+        <font size="+2">Nazwa*</font><br>
+        <input type="text" name="nazwa" value={{grupy.1}}><br>
+        <font size="+2">Trener*</font><br>
+        <select id="trener" name="trener">
+            <option selected={{atrener.0}} value={{ atrener.0 }}>{{atrener.1}} {{atrener.2}}</option>
+            {% for foo in trenerzy %}
+                <option value="{{foo.0}}">{{foo.1}} {{foo.2}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+2">Typ*</font><br>
+        <select id="typ" name="typ">
+            <option selected={{atyp}}>{{atyp}}</option>
+            {% for foo in typy %}
+                <option value= "{{foo.0}}">{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+1">* - pole obowiązkowe</font><br>
+    <input type="submit" name="Zapisz" value="Zapisz">
+    </form>
+</div>
+
+{% endblock %}

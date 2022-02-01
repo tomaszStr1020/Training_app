@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block addplany  %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/plany/">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Dodano nowy plan treningowy! Dodaj kolejny plan lub wróć do listy planów.</font><br><br><br>
+</div>
+{% elif flag == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się dodać planu. Uzupełnij wszystkie pola oznaczone gwiazdką!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="">
+        <font size="+2">Autor*</font><br>
+        <select id="autor" name="autor">
+            {% for foo in trenerzy %}
+                <option value={{foo.0}}>{{foo.1}} {{foo.2}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+2">Opis*</font><br>
+        <textarea name="opis" rows="5" cols="40"></textarea><br>
+        <font size="+1">* - pole obowiązkowe</font><br>
+        <input type="submit" name="Dodaj" value="Dodaj">
+    </form>
+</div>
+
+{% endblock %}

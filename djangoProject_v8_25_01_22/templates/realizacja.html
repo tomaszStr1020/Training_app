@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block realization  %}
+    <div class="powrot">
+          <p><a href="{% url 'detailtraining_view' id data %}">Powrót</a></p>
+    </div>
+<div align="center">
+    <font size="+3" color="#696969">ZAWODNIK:</font><font size="+3"> {{zawodnik}} </font> <br>
+</div>
+<div align="center">
+    <br>
+    <font size="+3" color="#696969">REALIZACJA TRENINGU</font><br>
+    <font size="+3">{{realizacja}}</font><br>
+</div>
+
+{% endblock %}

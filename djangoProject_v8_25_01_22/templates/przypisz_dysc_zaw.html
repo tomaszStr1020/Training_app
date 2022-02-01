@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block adddisczawodnicy  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_competitor_view' id %}">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się przypisać dyscypliny. Prawdopodobnie jest już ona przypisana dla tego zawodnika.</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'add_disccomp_view' id %}">
+        <font size="+2">Wybierz dyscyplinę</font><br>
+        <select id="dysc" name="dysc">
+            {% for foo in dysc %}
+                <option value={{foo.0}}>{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+    <input type="submit" value="Przypisz" name="przypisz">
+    </form>
+</div>
+
+{% endblock %}

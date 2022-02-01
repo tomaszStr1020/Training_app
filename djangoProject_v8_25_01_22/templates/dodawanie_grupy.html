@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block addgrupy  %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/grupy/">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Dodano nową grupę! Dodaj kolejną grupę lub wróć do listy grup.</font><br><br><br>
+</div>
+{% elif flag == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się dodać grupy.</font><br><br><br>
+</div>
+{% elif flag == 3 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się dodać grupy. Uzupełnij wszystkie pola oznaczone gwiazdką!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'dodajgrupe' %}">
+        <font size="+2">Nazwa*</font><br>
+        <input type="text" name="nazwa"><br>
+        <font size="+2">Trener*</font><br>
+        <select id="trener" name="trener">
+            {% for foo in trenerzy %}
+                <option value={{foo.0}}>{{foo.1}} {{foo.2}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+2">Typ*</font><br>
+        <select id="typ" name="typ">
+            {% for foo in typy %}
+                <option >{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+1">* - pole obowiązkowe</font><br>
+        <input type="submit" value="Dodaj" name="Dodaj">
+    </form>
+</div>
+
+{% endblock %}

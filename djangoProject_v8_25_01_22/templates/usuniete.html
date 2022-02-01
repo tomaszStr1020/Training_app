@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block delete_diet %}
+
+        {% if typ == "zawodnik" %}
+            {% if error %}
+        <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+         {% else %}
+        <p>Pomyślnie usunięto zawodnika</p>
+        {% endif %}
+            <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/zawodnicy">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'dieta' %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto dietę</p>
+    {% endif %}
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/diety">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'dyscyplina' %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto dyscyplinę</p>
+    {% endif %}
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/dyscypliny">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'typ_dyscypliny' %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto typ dyscypliny</p>
+    {% endif %}
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/typydyscyplin">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+        {% elif typ == 'trener' %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto trenera</p>
+    {% endif %}
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/trenerzy">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+
+            {% elif typ == 'grupa' %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto grupę </p>
+    {% endif %}
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/grupy">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+
+            {% elif typ == 'szkola' %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto szkoloną dyscyplinę</p>
+    {% endif %}
+        <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/detailstre/trener/{{ id_tren }}">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+
+        {% else %}
+        {% if error %}
+    <p>Nie udało się usunąć</p>
+        <p>{{ error }}</p>
+    {% else %}
+    <p>Pomyślnie usunięto uprawianą dyscyplinę</p>
+    {% endif %}
+            <div class="container" align="center">
+                <a href="http://127.0.0.1:8000/detailszaw/zawodnik/{{ id_zaw }}">
+                <button class="btn3">OK</button>
+                </a>
+            </div>
+
+
+    {% endif %}
+{% endblock %}

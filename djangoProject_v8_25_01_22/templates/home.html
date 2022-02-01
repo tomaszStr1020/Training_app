@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%  block title %}
+    {% if user.is_authenticated is not True %}
+        <h1 align="center"> Zaloguj się aby skorzystać z aplikacji! </h1>
+
+        {% else %}
+            <h1>Witaj, {{ username|make_list|slice:'0:'|join:'' }}!</h1>
+            <h3>Miłego korzystania z naszej aplikacji :)</h3>
+    {% endif %}
+
+
+{%  endblock  %}
+
+{% block content %}
+
+{% endblock %}

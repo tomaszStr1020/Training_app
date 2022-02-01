@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block editplany  %}
+    <div class="powrot">
+          <p><a href="{% url 'szczegoly_zawodnika' id data %}">Powrót</a></p>
+    </div>
+<div align="center">
+
+    <form method="get" action="{% url 'edytowanie_realizacji' id data %}">
+        <font size="+2">Realizacja treningu</font><br>
+        {% if flaga == 1 %}
+            <textarea name="opis" rows="5" cols="40" >{{ plan }}</textarea><br>
+        {% else %}
+
+            <textarea name="opis" rows="5" cols="40" >Wprowadź realizację</textarea><br>
+
+        {% endif %}
+
+    <input type="submit" value="Zapisz" name="Zapisz">
+    </form>
+</div>
+
+
+{% endblock %}

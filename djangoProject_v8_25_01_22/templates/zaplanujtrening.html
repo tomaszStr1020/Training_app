@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block plantraining  %}
+    <div class="powrot">
+          <p><a href="{% url 'traininggroup_view' id %}">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się zaplanować treningu. Wybierz datę!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'plantraining_view' id %}">
+        <font size="+2">Data*</font><br>
+         <input type="date" name="data_tr"><br>
+        <font size="+2">Plan treningowy*</font><br>
+        <font>Szczegóły dotyczące planu w zakładce "Plany treningowe"</font><br>
+         <select id="plan" name="plan">
+            {% for foo in plany %}
+            <option value={{foo.0}}>{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+        <font >* - pole obowiązkowe</font><br>
+        <input type="submit" name="Zaplanuj" value="Zaplanuj">
+    </form>
+</div>
+
+{% endblock %}

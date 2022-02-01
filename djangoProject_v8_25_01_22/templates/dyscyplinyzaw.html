@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block dyscyplinyzaw  %}
+{% if lmd > 0 %}
+<div align="center">
+    <table>
+        <caption>Moje dyscypliny</caption>
+        <tr>
+            <th>Nazwa</th>
+            <th>Rekord życiowy</th>
+            <th>Data rozpoczęcia</th>
+            <th>Rekord klubu</th>
+        </tr>
+        {% for foo in dyscypliny %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            {% if foo.1 is not None %}
+                <td>{{ foo.1 }}</td>
+            {% else %}
+                <td>brak</td>
+            {% endif %}
+            <td>{{ foo.2 }}</td>
+             {% if foo.3 is not None %}
+                <td>{{ foo.3 }}</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+<div align="center">
+    <br>
+    <table>
+        <caption>Wszystkie dyscypliny</caption>
+        <tr>
+            <th>Nazwa</th>
+            <th>Typ</th>
+            <th>Rekord klubu</th>
+        </tr>
+        {% for foo in dyscyplinyall %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.3 }}</td>
+            {% if foo.1 is not None %}
+                <td>{{ foo.1 }}</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

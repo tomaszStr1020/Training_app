@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block szczegolytreningu_zaw %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/treningizaw/">Powrót</a></p>
+    </div>
+<div align="center">
+    <font size="+5">Plan treningowy</font><br>
+    <font size="+2">{{plan.2}}</font><br>
+</div>
+    {% if flag %}
+    <div align="center">
+        <br>
+
+        <font size="+5">Moja realizacja treningu</font><br>
+        <font size="+2">{{ realizacja }}</font>
+    </div>
+    {% endif %}
+    <div class="container" align="center">
+    {% if flag %}
+        <a href="{% url 'edytowanie_realizacji' id data %}">
+        <button class="btn">Edytuj realizację</button>
+    </a>
+
+        {% else %}
+        <a href="{% url 'edytowanie_realizacji' id data %}">
+        <button class="btn">Dodaj realizację</button>
+    </a>
+    {% endif %}
+    </div>
+
+{% endblock %}

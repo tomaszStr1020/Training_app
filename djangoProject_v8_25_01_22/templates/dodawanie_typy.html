@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block addtypedisc %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/typydyscyplin/">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Dodano nowy typ dyscypliny! Dodaj kolejny lub wróć do listy typów.</font><br><br><br>
+</div>
+{% elif flag == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się dodać typu dyscypliny. Wypełnij pole nazwa!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'dodajtypdyscypliny' %}">
+        <font size="+2">Nazwa*</font><br>
+        <input type="text" name="nazwa"><br>
+        <font>* - pole obowiązkowe</font><br>
+        <input type="submit" name="Dodaj" value="Dodaj">
+    </form>
+</div>
+
+{% endblock %}

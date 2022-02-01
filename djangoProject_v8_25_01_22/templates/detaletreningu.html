@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block detailtraining  %}
+    <div class="powrot">
+          <p><a href="{% url 'traininggroup_view' id %}">Powrót</a></p>
+    </div>
+<div align="center">
+    <font size="+5">Plan treningowy</font><br>
+    <font size="+2">{{opis}}</font><br>
+</div>
+<div align="center">
+    <br><br>
+    <font size="+5">Realizacja treningu</font><br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Imię i nazwisko</th>
+            <th>Realizacja</th>
+        </tr>
+        {% for foo in realizacja %}
+        <tr>
+            <td>{{ foo.0 }}</td>
+            <td>{{ foo.1 }}</td>
+            {% if foo.2 == 1 %}
+                <td><a href="{% url 'trainingrealization_view' id data foo.0 %}">zobacz</a></td>
+            {% else %}
+                <td><center>brak</center></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

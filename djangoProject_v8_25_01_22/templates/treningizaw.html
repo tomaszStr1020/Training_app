@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block treningizaw  %}
+<div align="center">
+    <form method="get" action="{% url 'trainingzaw_view' %}">
+        <font size="+2">Od:</font><input type="date" name="data_od">
+        <font size="+2">Do:</font><input type="date" name="data_do"><br>
+        <input type="submit" value="Pokaż" name="Pokaż">
+        <br>
+    </form>
+    <font size="+5">Treningi</font> <br>
+    <table>
+        <tr>
+            <td>Data</td>
+            <td></td>
+        </tr>
+        {% for foo in treningi %}
+            <tr>
+                <td>{{ foo.0 }}</td>
+                <td><a href="{% url 'szczegoly_zawodnika' id_grupy foo.1  %}" >szczegóły</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block newrecord  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_competitor_view' id %}">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie wprowadzono rekordu.</font><br><br><br>
+</div>
+{% elif flag == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">{{kom}}</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="GET", action="{% url 'newrecord_view' id nazwa %}">
+        <font size="+2">Nowy rekord</font><br>
+        <input type="text" name="rekord"><br>
+    <input type="submit" value="Dodaj" name="dodaj">
+    </form>
+</div>
+
+{% endblock %}

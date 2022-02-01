@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block edittrenerzy  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_coach_view' id %}">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się edytować trenera. Wypełnij pola oznaczone gwiazdką!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'edit_coach_view' id %}">
+        <font size="+2">Imię*</font><br>
+        <input type="text" name="imie" value={{trenerzy.1}}><br>
+        <font size="+2">Nazwisko*</font><br>
+        <input type="text" name="nazwisko" value={{trenerzy.2}}><br>
+        <font size="+2">PESEL</font><br>
+        {% if trenerzy.3 is None %}
+            <input type="text" name="pesel"><br>
+        {% else %}
+            <input type="text" name="pesel" value={{trenerzy.3}}><br>
+        {% endif %}
+        <font size="+2">Data urodzenia</font><br>
+        <font size="+1">Pozostaw niewypełnione jeśli chcesz zostawić aktualną datę urodzenia</font><br>
+        <input type="date" name="data_ur" value={{trenerzy.4}}><br>
+        <font size="+2">Płeć</font><br>
+        <select id="plec" name="plec">
+            {% if trenerzy.5 == 'M' %}
+                <option selected="M">Mężczyzna</option>
+                <option value="K">Kobieta</option>
+            {% elif trenerzy.5 == 'K' %}
+                <option selected="K">Kobieta</option>
+                <option value="M">Mężczyzna</option>
+            {% else %}
+                <option selected=""></option>
+                <option value="M">Mężczyzna</option>
+                <option value="K">Kobieta</option>
+            {% endif %}
+        </select><br>
+    <input type="submit" value="Zapisz" name="Zapisz">
+    </form>
+</div>
+<div align="center">
+    <br>
+    * - pole obowiązkowe
+</div>
+
+{% endblock %}

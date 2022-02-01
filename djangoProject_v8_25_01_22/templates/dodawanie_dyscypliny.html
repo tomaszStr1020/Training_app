@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block adddisc %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/dyscypliny/">Powrót</a></p>
+    </div>
+{% if flag == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Dodano nową dyscyplinę! Dodaj kolejną lub wróć do listy dyscyplin.</font><br><br><br>
+</div>
+{% elif flag == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się dodać dyscypliny. Wypełnij pola oznaczone gwiazdką!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <form method="get" action="{% url 'dodajdyscypline' %}">
+        <font size="+2">Nazwa*</font><br>
+        <input type="text" name="nazwa"><br>
+        <font size="+2">Typ*</font><br>
+        <select id="typ" name="typ">
+            {% for foo in typy %}
+                <option >{{foo.0}}</option>
+        {% endfor %}
+        </select>
+   <br> <font>* - pole obowiązkowe</font><br>
+    <input type="submit" name="Dodaj" value="Dodaj">
+
+    </form>
+</div>
+
+{% endblock %}

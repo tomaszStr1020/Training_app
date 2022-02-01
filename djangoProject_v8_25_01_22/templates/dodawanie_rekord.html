@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block addrekord %}
+    <div class="powrot">
+          <p><a href="http://127.0.0.1:8000/dyscypliny/">Powrót</a></p>
+    </div>
+<div align="center">
+    <form method="get" action="{% url 'dodawanie_rekordu' %}">
+        <font size="+2">Kaloryczność</font><br>
+        <input type="text" name="kalorycznosc"><br>
+        <font size="+2">Opis</font><br>
+        <textarea name="opis" rows="5" cols="40"></textarea><br>
+        <input type="submit" value="Dodaj" name="Dodaj">
+    </form>
+</div>
+{% endblock %}

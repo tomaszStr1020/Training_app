@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block ustaleniediety  %}
+    <div class="powrot">
+          <p><a href="{% url 'detail_competitor_view' id %}">Powrót</a></p>
+    </div>
+{% if flag1 == 1 %}
+<div align="center">
+    <br>
+    <font size="+1">Przypisano zawodnikowi nową dietę!</font><br><br><br>
+</div>
+{% elif flag1 == 2 %}
+<div align="center">
+    <br>
+    <font size="+1">Nie udało się przypisać diety nowej diety. Wypełnij wszystkie pola zaznaczone gwiazdką!</font><br><br><br>
+</div>
+{% endif %}
+<div align="center">
+    <font size="+5">Dieta zawodnika</font> <br>
+    <br>
+    {% if flag == 0 %}
+        <font size="+3" color="#696969">Zawodnik nie ma obecnie przydzielonej diety.</font> <br>
+    {% else %}
+        <font size="+3" color="#696969">KALORYCZNOŚĆ: {{diety.0}}</font> <br>
+        <br>
+        <font size="+3" color="#696969">OPIS: {{diety.1}}</font> <br>
+        <br>
+        <font size="+3" color="#696969">OBOWIĄZUJE DO: {{diety.2}}</font>  <br>
+        <br>
+    {% endif %}
+</div>
+<div align="center">
+    <br><br>
+    {% if flag == 0 %}
+        <font size="+5">Przypisz dietę zawodnikowi</font> <br>
+    {% else %}
+        <font size="+5">Zmień dietę zawodnikowi</font> <br>
+    {% endif %}
+    <form method="get" action="{% url 'diet_competitor_view' id %}">
+        <font size="+2">Dieta(ID)*</font><br>
+        <font>Szczegóły dotyczące diety w zakładce "Diety"</font><br>
+        <select id="id_diety" name="id_diety">
+               {% for foo in alldiety %}
+                <option value="{{foo.0}}">{{foo.0}}</option>
+        {% endfor %}
+        </select><br>
+        <font size="+2">Do kiedy ma obowiązywać*</font><br>
+        <input type="date" name="data_diety"><br>
+         <font>* - pole obowiązkowe</font><br>
+        <input type="submit" name="Przypisz" value="Przypisz">
+
+
+    </form>
+</div>
+{% endblock %}
